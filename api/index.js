@@ -1,6 +1,7 @@
 const express = require("express")
 const mongoose = require("mongoose")
-const dotenv = require('dotenv').config();
+const bodyParser = require("body-parser")
+const cors = require("cors")
 
 const app = express()
 
@@ -12,10 +13,10 @@ const review = require("./routes/review.routes")
 const order = require("./routes/order.routes")
 const conversation = require("./routes/conversation.routes")
 const message = require("./routes/message.routes")
-const bodyParser = require("body-parser")
 
 // Middlewares
 app.use(bodyParser.json())
+app.use(cors())
 
 // Utilisation des routes
 app.use("/api/auth", auth)
